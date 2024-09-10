@@ -2,10 +2,10 @@
 
 ## [Link to Lab 2 assignment](https://csse.msoe.us/csc1020/lab2)
 
-* [ ] Commit 1 **Die class**
+* [x] Commit 1 **Die class**
     - Implement the `Die` class
     - Implement the `DieNotRolledException` class
-* [ ] Commit 2 **User input and Die creation**
+* [x] Commit 2 **User input and Die creation**
     - Implement the `getInput()` and `createDice()` methods
     - In the `main()` method, call `getInput()` and store the results in an `int[]`
 * [ ] Commit 3 **Roll dice and store values**
