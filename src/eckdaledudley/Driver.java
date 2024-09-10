@@ -14,9 +14,6 @@ public class Driver {
     public static final int MIN_DICE = 2;
     public static final int MAX_DICE = 10;
     private static final Scanner in = new Scanner(System.in);
-    private static int numDice;
-    private static int numSides;
-    private static int numRolls;
     private static int total;
 
     public static void main(String[] args) {
@@ -59,11 +56,11 @@ public class Driver {
             throw new InvalidNumSides("Bad die creation: Illegal number of sides: "+Integer.parseInt(ans[1]));
         }
 
-        numDice = Integer.parseInt(ans[0]);
+        int numDice = Integer.parseInt(ans[0]);
 
-        numSides = Integer.parseInt(ans[1]);
+        int numSides = Integer.parseInt(ans[1]);
 
-        numRolls = Integer.parseInt(ans[2]);
+        int numRolls = Integer.parseInt(ans[2]);
 
         return new int[]{numDice, numSides, numRolls};
     }
