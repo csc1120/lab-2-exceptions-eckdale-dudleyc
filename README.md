@@ -8,7 +8,7 @@
 * [x] Commit 2 **User input and Die creation**
     - Implement the `getInput()` and `createDice()` methods
     - In the `main()` method, call `getInput()` and store the results in an `int[]`
-* [ ] Commit 3 **Roll dice and store values**
+* [x] Commit 3 **Roll dice and store values**
     - Implement `rollDice()` and `findMax()` methods
     - In the `main()` method, create the dice, run the experiment, and find the max value count
 * [ ] Commit 4 **Lab completed**

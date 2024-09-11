@@ -3,7 +3,7 @@
  * Lab 2 - Exceptions
  * Main Driver class
  * Name: Chloe Eckdale-Dudley
- * Last Updated: 9/10/2024
+ * Last Updated: 9/11/2024
  */
 package eckdaledudley;
 
