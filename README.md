@@ -11,7 +11,7 @@
 * [x] Commit 3 **Roll dice and store values**
     - Implement `rollDice()` and `findMax()` methods
     - In the `main()` method, create the dice, run the experiment, and find the max value count
-* [ ] Commit 4 **Lab completed**
+* [x] Commit 4 **Lab completed**
     - Implement `report()` so the format matches exactly the sample output
     - **Test your code** and ensure the correct `Exception`s are being thrown and handled appropriately
 * [ ] Commit 5 **Jar completed**

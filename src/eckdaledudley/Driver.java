@@ -3,18 +3,14 @@
  * Lab 2 - Exceptions
  * Main Driver class
  * Name: Chloe Eckdale-Dudley
- * Last Updated: 9/11/2024
+ * Last Updated: 9/13/2024
  */
 package eckdaledudley;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Driver {
-
-    /*
-    - Implement `rollDice()` and `findMax()` methods
-    - In the `main()` method, create the dice, run the experiment, and find the max value count
-     */
 
     public static final int MIN_DICE = 2;
     public static final int MAX_DICE = 10;
@@ -29,30 +25,23 @@ public class Driver {
         boolean validInput = false;
         while(!validInput) {
             try {
-                int[] inputs = getInput();
+                getInput();
                 validInput = true;
             } catch (NumberFormatException e) {
                 System.err.println("Invalid input: All values must be whole numbers");
-            } catch (InvalidNumSides | IllegalArgumentException e) {
+            } catch (InvalidNumSides | InputMismatchException e) {
                 System.err.println(e.getMessage());
             }
         }
-
-        //create the dice
         Die[] dice = createDice(numDice,numSides);
-        //roll the die
         int[] rolls = rollDice(dice,numSides,numRolls);
-        //Find the max in rolls[]
-        int max = findMax(rolls);
-        System.out.println("Max: "+max);
-
+        report(numDice,rolls,findMax(rolls));
     }
 
     /**
      * Asks the user for three numbers, number of dice to roll, num sides these dice will have, times to be rolled
-     * @return these values in the same order as entered as an array
      */
-    private static int[] getInput() {
+    private static void getInput() {
 
         System.out.println("""
                 Please enter the number of dice to roll, how many sides the dice have,
@@ -64,13 +53,15 @@ public class Driver {
         String input = in.nextLine();
         String[] ans = input.split(" ");
 
+
         if (ans.length != 3) {
-            throw new IllegalArgumentException("Invalid input: Expected 3 values");
+            throw new InputMismatchException("Invalid input: Expected 3 values");
         }
 
         if(Integer.parseInt(ans[1]) > MAX_DICE || Integer.parseInt(ans[1]) < MIN_DICE) {
             throw new InvalidNumSides("Bad die creation: Illegal number of sides: "+Integer.parseInt(ans[1]));
         }
+
 
         numDice = Integer.parseInt(ans[0]);
 
@@ -78,7 +69,6 @@ public class Driver {
 
         numRolls = Integer.parseInt(ans[2]);
 
-        return new int[]{numDice, numSides, numRolls};
     }
 
 
@@ -90,7 +80,6 @@ public class Driver {
      * @return an array of Die objects
      */
 
-    //CHECK
     private static Die[] createDice(int numDice, int numSides) {
         Die[] dice = new Die[numDice];
         for(int i = 0; i < numDice; i++) {
@@ -121,7 +110,6 @@ public class Driver {
                 die.roll();
                 total += die.getCurrentValue();
             }
-            System.out.println("Total rolled: "+total);
             rolls[total-min] += 1;
         }
         return rolls;
@@ -142,6 +130,24 @@ public class Driver {
             }
         }
         return max;
+    }
+
+    /**
+     * @param numDice the numDice to be rolled
+     * @param rolls the array holding roll values
+     * @param max the max num rolls in the rolls array
+     */
+    private static void report(int numDice, int[] rolls, int max) {
+        int scale = (max<10) ? 1 : max / 10;
+
+        for (int roll : rolls) {
+
+            int numStars = roll / scale;
+
+            System.out.printf("%-2d : %5d       %s%n", numDice, roll, "*".repeat(Math.max(0, numStars)));
+
+            numDice++;
+        }
     }
 
 }

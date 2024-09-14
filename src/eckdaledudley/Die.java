@@ -3,7 +3,7 @@
  * Lab 2 - Exceptions
  * Die class
  * Name: Chloe Eckdale-Dudley
- * Last Updated: 9/11/2024
+ * Last Updated: 9/13/2024
  */
 package eckdaledudley;
 
