@@ -7,6 +7,8 @@
  */
 package eckdaledudley;
 
+import javafx.application.Application;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
